@@ -34,7 +34,7 @@
 
 ## 貢獻者
 
-- [Your Name](https://github.com/yourusername)
+- [Your Name](https://github.com/fainstar)
 
 ## 授權
 
