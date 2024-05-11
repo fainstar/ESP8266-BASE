@@ -6,10 +6,6 @@
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h> 
 
-extern String GET_URL;
-extern String GET_BODY;
-extern int GET_TIMEOUT;
-
 class Job {
 private:
     unsigned long lastExecutionTime;
