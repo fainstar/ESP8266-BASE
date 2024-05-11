@@ -16,7 +16,6 @@ bool Job::checkAndExecute(void (*executed)()) {
 
 
 void wifi_inti(const char* ssid, const char* password) {
-
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
@@ -28,9 +27,7 @@ void wifi_inti(const char* ssid, const char* password) {
   Serial.println(WiFi.localIP());
 }
 
-
-void GetRequest()
-{
+void GetRequest(){
   static int OutputTemp;
   HTTPClient http;
   WiFiClient client;
