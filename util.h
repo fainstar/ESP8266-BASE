@@ -20,6 +20,6 @@ extern WebSocketsClient webSocket;
 
 void Internet_inti();
 void GetRequest();
-
+void checkWiFiStatus();
 void webSocketEvent(WStype_t type, const uint8_t * payload, size_t length);
 #endif

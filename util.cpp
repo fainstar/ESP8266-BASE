@@ -14,30 +14,30 @@ bool Job::checkAndExecute(void (*executed)()) {
   return false;
 }
 
-// WebSocket 設定
-
-
+void checkWiFiStatus() {
+  if (WiFi.status() != WL_CONNECTED) {
+    Serial.println("Wi-Fi 未連接");
+    Internet_inti();
+  }else Serial.println("Wi-Fi 已連接");
+}
 
 void Internet_inti() {
-  const char* wifi_ssid = "star";
-  const char* wifi_password ="26931886";
+  const char* wifi_ssid = "RU_A15";
+  const char* wifi_password ="qaz654321";
   const char* websocket_server_host = "49.213.238.75";
   const uint16_t websocket_server_port = 5000;
   const char* websocket_server_path = "/ws/chat/test/";
   WiFi.mode(WIFI_STA);
   WiFi.begin(wifi_ssid, wifi_password);
   while (WiFi.status() != WL_CONNECTED) {
-    delay(1000);
+    delay(500);
     Serial.println("Connecting to WiFi...");
   }
-  Serial.println("Connected to WiFi");
   Serial.print("Local IP: ");
   Serial.println(WiFi.localIP());
   // 設定 WebSocket
   webSocket.begin(websocket_server_host, websocket_server_port, "/");
-  // 設定 WebSocket 事件回調函數
   webSocket.onEvent(webSocketEvent);
-  // 設定 WebSocket 重連間隔
   webSocket.setReconnectInterval(3000);
 }
 void webSocketEvent(WStype_t type, const uint8_t * payload, size_t length) {

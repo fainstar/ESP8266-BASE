@@ -5,6 +5,7 @@
 // 創建任務
 Job job01(1000);
 Job job02(500);
+Job job03(3000);
 
 // 創建 WebSocketClient 物件
 WebSocketsClient webSocket;
@@ -19,5 +20,7 @@ void setup() {
 void loop() {
   job01.checkAndExecute(test123);
   job02.checkAndExecute(heartbeat);
+  job03.checkAndExecute(checkWiFiStatus);
+
   webSocket.loop();
 }
