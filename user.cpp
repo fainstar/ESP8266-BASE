@@ -13,7 +13,6 @@ void heartbeat(){
   static bool state = 0;
   if(state == 0) state = 1;
   else state = 0;
-  Serial.print(temp123);
-  Serial.println(" debug!");
+  // Serial.println("heartbeat!");
   digitalWrite(Debug_LED, state);
 }

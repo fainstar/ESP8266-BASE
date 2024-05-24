@@ -5,6 +5,7 @@
 #include <ArduinoJson.h>
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h> 
+#include <WebSocketsClient.h>
 
 class Job {
 private:
@@ -15,8 +16,10 @@ public:
     Job(unsigned long interval);
     bool checkAndExecute(void (*executed)());
 };
+extern WebSocketsClient webSocket;
 
-void wifi_inti(const char* ssid, const char* password);
+void Internet_inti();
 void GetRequest();
 
+void webSocketEvent(WStype_t type, const uint8_t * payload, size_t length);
 #endif
